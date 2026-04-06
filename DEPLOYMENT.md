@@ -4,17 +4,28 @@ This project is ready to deploy as a portfolio/demo app.
 
 ## Recommended platform
 
-- Laravel Cloud
-- Alternative: DigitalOcean App Platform
+- Render Web Service with Docker
+- Alternative: Laravel Cloud
 
 ## Before deploying
 
 1. Push the repository to GitHub.
 2. Use a production database:
-- MySQL or PostgreSQL
+- PostgreSQL recommended
 3. Use a real mail provider:
 - Resend recommended
 4. Keep `APP_DEBUG=false`
+
+## Render deployment
+
+Render does not provide a native PHP runtime for this project flow, so deploy it as a Docker web service using the included `Dockerfile`.
+
+Use these Render settings:
+
+- Service type: `Web Service`
+- Environment: `Docker`
+- Branch: `main`
+- Dockerfile path: `./Dockerfile`
 
 ## Required production environment values
 
@@ -27,10 +38,10 @@ APP_ENV=production
 APP_DEBUG=false
 APP_URL=https://your-domain.com
 
-DB_CONNECTION=mysql
+DB_CONNECTION=pgsql
 DB_HOST=...
-DB_PORT=3306
-DB_DATABASE=...
+DB_PORT=5432
+DB_DATABASE=postgres
 DB_USERNAME=...
 DB_PASSWORD=...
 
@@ -38,6 +49,10 @@ MAIL_MAILER=resend
 RESEND_API_KEY=re_xxxxxxxxxxxxxxxxx
 MAIL_FROM_ADDRESS=noreply@your-domain.com
 MAIL_FROM_NAME="CareerFlow ATS"
+
+SESSION_DRIVER=file
+CACHE_STORE=file
+QUEUE_CONNECTION=sync
 ```
 
 ## Required package for Resend
@@ -50,26 +65,12 @@ composer require resend/resend-php symfony/http-client
 
 ## Build and deploy flow
 
-1. Install dependencies
+Render will build the Docker image automatically.
 
-```bash
-composer install --no-dev --optimize-autoloader
-npm install
-npm run build
-```
-
-2. Run the Laravel deploy script
-
-```bash
-composer run deploy
-```
-
-That deploy script runs:
+The container start command already runs:
 
 - `php artisan migrate --force`
-- `php artisan config:cache`
-- `php artisan route:cache`
-- `php artisan view:cache`
+- `php artisan serve --host=0.0.0.0 --port=$PORT`
 
 ## Health check
 
@@ -100,4 +101,4 @@ Test these flows:
 
 ## Important note
 
-Do not deploy the local SQLite setup as the public version. Keep SQLite for local development and use a managed production database for hosting.
+Do not deploy the local SQLite setup as the public version. Keep SQLite for local development and use a managed PostgreSQL database such as Supabase for hosting.
