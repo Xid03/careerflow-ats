@@ -18,9 +18,16 @@
 /public/storage
 /storage/*.key
 /storage/pail
+/storage/private/*.sqlite
+/storage/private/*.sqlite-journal
+/storage/framework/views_runtime/*
 /vendor
 _ide_helper.php
 Homestead.json
 Homestead.yaml
 Thumbs.db
 temp_sqlite_probe.php
+/database/*.sqlite
+/database/*.sqlite-journal
+/database/*-journal
+/database/write-test.txt
