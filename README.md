@@ -1,43 +1,64 @@
 # CareerFlow ATS
 
-CareerFlow ATS is a web-based applicant tracking system built for job seekers who want a cleaner, smarter alternative to spreadsheets and notebooks. It helps users manage job applications, interviews, reminders, salary expectations, and progress across the job-search pipeline.
+CareerFlow ATS is a personal applicant tracking system built with Laravel for job seekers who want a cleaner and more structured alternative to spreadsheets, notes, and scattered reminders.
 
-This project is designed as a beginner-to-intermediate portfolio piece that demonstrates real product thinking, clean Laravel structure, relational database design, dashboard analytics, and user-focused workflows.
+It helps users manage applications, track interview progress, monitor salary expectations, and stay on top of follow-ups through one focused dashboard.
 
-## Project Overview
+## Recruiter Snapshot
 
-### Problem
-Job seekers often track applications in Excel, notes apps, or memory. That makes it difficult to:
+- Full-stack Laravel product with real user workflows, not just basic CRUD
+- Demonstrates authentication, relational modeling, validation, authorization, analytics, and deployment readiness
+- Built with product-focused UI polish, responsive design, and dark mode support
+- Includes automated tests for core user flows
 
-- see which companies they already applied to
-- remember follow-ups
-- track interviews and offers
-- compare salary expectations and outcomes
-- understand job-search momentum at a glance
+## Quick Highlights
 
-### Solution
-CareerFlow ATS gives each user a private dashboard where they can:
+- Problem solved: personal job tracking is usually messy, manual, and easy to lose track of
+- Product direction: one calm workspace for applications, interviews, reminders, and salary insight
+- Strongest engineering areas: ownership rules, dashboard aggregation, reusable Blade components, and clean Laravel structure
+- Portfolio value: shows both technical depth and practical product thinking
+
+## Tech Summary
+
+- Backend: PHP 8.3, Laravel 13
+- Frontend: Blade, Tailwind CSS, Alpine.js, Vite
+- Database: SQLite for local development
+- Testing: PHPUnit
+- Deployment-ready setup: Docker, Render-friendly configuration
+
+## Why This Project Stands Out
+
+- Solves a real workflow problem with practical day-to-day value
+- Designed as a complete product, not just a CRUD exercise
+- Shows ownership rules, relational data modeling, dashboard reporting, and polished UI work
+- Demonstrates both backend structure and frontend product thinking
+- Includes automated tests for core business flows
+
+## What It Does
+
+CareerFlow gives each user a private workspace to:
 
 - create and manage job applications
-- update statuses through the hiring pipeline
-- record interview rounds
+- track statuses across the hiring pipeline
+- record interview rounds and outcomes
 - schedule reminders and follow-ups
-- review salary trends and dashboard insights
-- export their data to CSV
+- review salary trends and offer data
+- monitor recent activity and momentum from a dashboard
+- export filtered application data to CSV
 
 ## Core Features
 
 - Secure authentication with Laravel Breeze
-- Application CRUD with ownership rules
+- Application CRUD with user ownership protection
 - Search and filter by company, role, and status
-- Interview tracking with timeline view
+- Interview tracking with editable entries
 - Reminder scheduling, completion, and cleanup
-- Status history timeline with optional status notes
-- Dashboard metrics for pipeline activity
-- Visual analytics for status distribution and monthly application activity
+- Status history timeline with optional notes
+- Dashboard insights for overdue reminders and upcoming interviews
+- Status distribution and monthly activity visual summaries
 - Salary snapshot for expected and offered compensation
-- CSV export for filtered application data
-- Seeded demo portfolio data
+- Success and confirmation modal flows for key actions
+- Responsive UI with light and dark mode support
 
 ## Tech Stack
 
@@ -45,10 +66,23 @@ CareerFlow ATS gives each user a private dashboard where they can:
 - Frontend: Blade, Tailwind CSS, Alpine.js, Vite
 - Database: SQLite for local development
 - Testing: PHPUnit
+- Deployment-ready setup: Docker, Render-friendly configuration
 
-## Data Model
+## Engineering Highlights
 
-Main entities:
+This project was built to demonstrate more than interface design.
+
+Key technical areas include:
+
+- layered Laravel MVC structure
+- request validation with user-friendly error messaging
+- record ownership enforcement through policies and scoped queries
+- relational schema design for applications, interviews, reminders, and history
+- reusable Blade layouts and components
+- dashboard aggregation logic for user-specific analytics
+- production considerations such as environment separation and deployment setup
+
+## Main Entities
 
 - `users`
 - `companies`
@@ -57,7 +91,7 @@ Main entities:
 - `reminders`
 - `application_status_histories`
 
-Key relationships:
+Main relationships:
 
 - one user has many applications
 - one company has many applications
@@ -67,29 +101,42 @@ Key relationships:
 
 ## Main Screens
 
-- Login and registration
+- Authentication flow
 - Dashboard overview
-- Applications list
+- Applications list and filters
 - Create and edit application form
 - Application detail page
+- Interview and reminder management
+- Profile settings
 
-## Dashboard Highlights
+## Product Focus
 
-- Total applications
-- Pending applications
-- Upcoming interviews
-- Overdue reminders
-- Offers received
-- Status distribution
-- Monthly application activity
-- Salary snapshot
+The product direction behind CareerFlow is simple:
 
-## Demo Account
+- reduce friction in personal job tracking
+- make follow-up actions easy to see
+- turn scattered progress into a clear workflow
+- balance practical usability with portfolio-level polish
 
-The project includes seeded portfolio data.
+## Testing Coverage
 
-- Email: `demo@careerflow.test`
-- Password: `password`
+Automated tests cover the most important user flows, including:
+
+- authentication
+- registration
+- password reset
+- application CRUD
+- ownership checks
+- interview management
+- reminder management
+- dashboard analytics
+- CSV export
+
+Run the test suite with:
+
+```bash
+php artisan test
+```
 
 ## Local Setup
 
@@ -107,11 +154,11 @@ copy .env.example .env
 php artisan key:generate
 ```
 
-### 3. Configure database
+### 3. Configure the local database
 
-This project is currently configured to use SQLite locally.
+This project uses SQLite locally.
 
-Active local database file:
+Local database file:
 
 - `storage/private/careerflow.sqlite`
 
@@ -124,13 +171,13 @@ php artisan db:seed
 
 ### 5. Start the app
 
-In one terminal:
+Terminal 1:
 
 ```bash
 php -S 127.0.0.1:8080 -t public
 ```
 
-In a second terminal:
+Terminal 2:
 
 ```bash
 npm run dev
@@ -140,41 +187,32 @@ Then open:
 
 - `http://127.0.0.1:8080`
 
-## Windows Notes
+## Demo Data
 
-This project was developed and tested on Windows. If `php artisan serve` fails to bind to a port on your machine, use:
+Seeded portfolio data is available for local demonstration.
 
-```bash
-php -S 127.0.0.1:8080 -t public
-```
+- Email: `demo@careerflow.test`
+- Password: `password`
 
 ## Email Setup
 
 ### Local development
 
-By default, this project uses:
+For local testing, mail is logged instead of sent:
 
 ```bash
 MAIL_MAILER=log
 ```
 
-That means password reset emails are written to:
+Password reset emails can then be reviewed in:
 
 - `storage/logs/laravel.log`
 
-This is useful for local testing when you do not want to send real email.
+### Production
 
-### Production / deployed app with Resend
+For hosted deployment, the recommended setup uses Resend.
 
-For a hosted version of CareerFlow ATS, the recommended mail provider is `Resend`.
-
-1. Install the required packages:
-
-```bash
-composer require resend/resend-php symfony/http-client
-```
-
-2. Set these environment variables on your server or hosting platform:
+Required production environment values:
 
 ```bash
 APP_URL=https://your-domain.com
@@ -184,90 +222,64 @@ MAIL_FROM_ADDRESS=noreply@your-domain.com
 MAIL_FROM_NAME="CareerFlow ATS"
 ```
 
-3. Clear cached config after updating environment values:
+After updating production mail configuration:
 
 ```bash
 php artisan config:clear
 ```
 
-4. Make sure your sender domain is verified inside your Resend account.
+## Deployment Notes
 
-Once this is configured, forgot-password emails and other future notifications will be delivered as real emails instead of being written to the log file.
+This repository includes deployment support for hosted environments such as Render.
 
-## Testing
+Supporting files include:
 
-Run the test suite with:
+- `Dockerfile`
+- `.env.production.example`
+- `DEPLOYMENT.md`
 
-```bash
-php artisan test
-```
+For a portfolio deployment, use:
 
-Current tested areas include:
+- a hosted PostgreSQL database
+- proper production environment variables
+- HTTPS-enabled hosting
 
-- application CRUD
-- ownership checks
-- status history
-- CSV export
-- dashboard analytics
-- reminder management
-- interview management
+## Suggested Portfolio Screenshots
 
-## Sample User Flows
-
-### Application tracking
-
-1. Create an application
-2. Update its status
-3. Add a status note
-4. Review the status history timeline
-
-### Interview tracking
-
-1. Add an interview round
-2. Update interview details
-3. Delete obsolete interview entries
-
-### Reminder workflow
-
-1. Add a follow-up reminder
-2. Mark it complete
-3. Track overdue reminders from the dashboard
-
-## Portfolio Value
-
-This project demonstrates:
-
-- clean Laravel MVC structure
-- reusable Blade components and layouts
-- custom validation and friendly error feedback
-- relational SQL design and one-to-many relationships
-- dashboard reporting and analytics
-- authorization based on record ownership
-- realistic seeded data for demos and screenshots
-
-## Suggested Screenshots
-
-For portfolio presentation, capture:
+If you want to present this project to recruiters or hiring managers, the most valuable screenshots are:
 
 - login page
 - dashboard overview
 - applications list with filters
 - create application form
 - application detail page
-- interview and reminder sections
+- reminder and interview sections
 - status history timeline
-- CSV export in spreadsheet view
+- dark mode view
 
 ## Future Improvements
 
 - dedicated reports page
-- advanced date and salary filters
-- recruiter and contact management
+- richer filtering by date and salary range
+- recruiter or contact management
 - saved filter presets
-- email or in-app reminder notifications
 - file attachments for resumes or cover letters
-- richer chart visualizations with a charting library
+- email or in-app reminder notifications
+- richer chart components
 
-## Author Notes
+## What This Project Demonstrates
 
-CareerFlow ATS was scoped to stay realistic for one developer while still looking polished and portfolio-worthy. The focus was on useful workflows, clean code, relational data modeling, and a professional user experience rather than overbuilding unnecessary complexity.
+For hiring teams, CareerFlow ATS demonstrates:
+
+- ability to turn a real-world problem into a usable product
+- thoughtful backend structure in Laravel
+- clean relational database design
+- full-stack problem solving across UI, business logic, and data
+- attention to user experience, not only code correctness
+- persistence in carrying a project through implementation, testing, and deployment preparation
+
+## Notes
+
+This repository is intended for portfolio and learning presentation.
+
+Sensitive production secrets are not stored in version control. Use environment variables for all deployment credentials and service keys.

@@ -70,7 +70,7 @@ Render will build the Docker image automatically.
 The container start command already runs:
 
 - `php artisan migrate --force`
-- `php artisan serve --host=0.0.0.0 --port=$PORT`
+- `php -S 0.0.0.0:$PORT -t public`
 
 ## Health check
 
