@@ -25,6 +25,7 @@ COPY package.json package-lock.json ./
 RUN npm ci
 
 COPY . .
+RUN rm -f public/hot
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction \
     && npm run build \
