@@ -26,6 +26,119 @@ It helps users manage applications, track interview progress, monitor salary exp
 - Testing: PHPUnit
 - Deployment-ready setup: Docker, Render-friendly configuration
 
+## Project Preview
+
+Add screenshots here later to make the repository more attractive for recruiters and hiring managers.
+
+Suggested preview slots:
+
+- Login page
+- Dashboard overview
+- Applications list with filters
+- Create application form
+- Application detail page
+- Reminder and interview sections
+- Status history timeline
+- Dark mode view
+
+### Login Page
+
+The login experience is designed to feel calm, modern, and product-focused rather than default framework scaffolding.
+
+Use this image path when you are ready:
+
+```md
+![Login page](docs/screenshots/login-page.png)
+```
+
+### Dashboard Overview
+
+Use this section to show the main workspace, KPI cards, reminders, interviews, and analytics at a glance.
+
+```md
+![Dashboard overview](docs/screenshots/dashboard-overview.png)
+```
+
+### Applications List
+
+Use this section to highlight filtering, search, status visibility, salary columns, and action controls.
+
+```md
+![Applications list](docs/screenshots/applications-list.png)
+```
+
+### Create Application Form
+
+Use this section to show the form design, field structure, and overall data-entry experience.
+
+```md
+![Create application form](docs/screenshots/create-application-form.png)
+```
+
+### Application Detail
+
+Use this section to show the deeper workflow view, including interviews, reminders, and status history.
+
+```md
+![Application detail](docs/screenshots/application-detail.png)
+```
+
+### Reminder and Interview Sections
+
+Use this section to highlight the workflow support features inside the application detail page.
+
+```md
+![Reminder and interview sections](docs/screenshots/reminder-interview-sections.png)
+```
+
+### Status History Timeline
+
+Use this section to show how application progress and updates are tracked over time.
+
+```md
+![Status history timeline](docs/screenshots/status-history-timeline.png)
+```
+
+### Dark Mode
+
+Use this section to show the visual polish and theming support of the interface.
+
+```md
+![Dark mode view](docs/screenshots/dark-mode.png)
+```
+
+Markdown base you can reuse:
+
+```md
+### Login Page
+![Login page](docs/screenshots/login-page.png)
+
+### Dashboard Overview
+![Dashboard overview](docs/screenshots/dashboard-overview.png)
+
+### Applications List
+![Applications list](docs/screenshots/applications-list.png)
+
+### Create Application Form
+![Create application form](docs/screenshots/create-application-form.png)
+
+### Application Detail
+![Application detail](docs/screenshots/application-detail.png)
+
+### Reminder and Interview Sections
+![Reminder and interview sections](docs/screenshots/reminder-interview-sections.png)
+
+### Status History Timeline
+![Status history timeline](docs/screenshots/status-history-timeline.png)
+
+### Dark Mode
+![Dark mode view](docs/screenshots/dark-mode.png)
+```
+
+Recommended folder:
+
+- `docs/screenshots/`
+
 ## Why This Project Stands Out
 
 - Solves a real workflow problem with practical day-to-day value
