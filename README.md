@@ -26,6 +26,19 @@ It helps users manage applications, track interview progress, monitor salary exp
 - Testing: PHPUnit
 - Deployment-ready setup: Docker, Render-friendly configuration
 
+## Architecture Overview
+
+CareerFlow ATS follows a practical Laravel application structure with a clear separation between UI, request handling, business rules, and data persistence.
+
+- Presentation layer: Blade views, reusable components, Tailwind CSS, Alpine.js
+- Request layer: controllers and form request classes for validation and flow handling
+- Domain layer: Eloquent models for applications, interviews, reminders, companies, and status history
+- Access control: ownership rules enforced through policies and scoped queries
+- Data layer: relational database design with one-to-many relationships and dashboard aggregations
+- Infrastructure layer: Vite for assets, SQLite for local development, Docker and hosted PostgreSQL for deployment
+
+This keeps the project readable, scalable for an MVP, and easy to extend with additional reporting or workflow features later.
+
 ## Project Preview
 
 Add screenshots here later to make the repository more attractive for recruiters and hiring managers.
