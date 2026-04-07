@@ -93,21 +93,21 @@
                 </article>
 
                 <div class="space-y-6">
-                    <aside class="cf-panel-soft motion-reveal border-rose-200 bg-rose-50/90 p-6" data-motion-delay="140">
+                    <aside class="cf-dashboard-side-panel cf-dashboard-side-panel--alert motion-reveal p-6" data-motion-delay="140">
                         <div class="flex items-center justify-between gap-4">
                             <div>
-                                <p class="cf-kicker text-rose-600">Needs attention</p>
+                                <p class="cf-kicker cf-dashboard-side-panel__kicker">Needs attention</p>
                                 <h3 class="cf-heading mt-2 text-2xl">Overdue reminders</h3>
                             </div>
 
-                            <span class="rounded-full bg-white px-3 py-1 text-sm font-semibold text-rose-700">
+                            <span class="cf-dashboard-side-panel__count">
                                 {{ $overdueReminders->count() }}
                             </span>
                         </div>
 
                         <div class="mt-6 space-y-4">
                             @forelse ($overdueReminders as $reminder)
-                                <article class="motion-reveal rounded-[24px] border border-rose-200 bg-white p-4 shadow-sm" data-motion-delay="{{ $loop->index * 70 }}">
+                                <article class="cf-dashboard-side-panel__item motion-reveal" data-motion-delay="{{ $loop->index * 70 }}">
                                     <div class="flex items-start justify-between gap-3">
                                         <div>
                                             <p class="text-sm font-semibold text-[var(--cf-ink)]">{{ $reminder->title }}</p>
@@ -116,24 +116,24 @@
                                             </p>
                                         </div>
 
-                                        <span class="text-xs font-semibold uppercase tracking-[0.2em] text-rose-600">
+                                        <span class="cf-dashboard-side-panel__meta">
                                             {{ $reminder->remind_at->diffForHumans() }}
                                         </span>
                                     </div>
 
                                     @if ($reminder->description)
-                                        <p class="mt-3 text-sm leading-6 text-slate-600">{{ $reminder->description }}</p>
+                                        <p class="mt-3 text-sm leading-6 text-[var(--cf-muted)]">{{ $reminder->description }}</p>
                                     @endif
 
                                     <a
                                         href="{{ route('applications.show', $reminder->application) }}"
-                                        class="mt-4 inline-flex items-center text-sm font-semibold text-rose-700 hover:text-rose-800"
+                                        class="cf-dashboard-side-panel__link mt-4 inline-flex items-center text-sm font-semibold"
                                     >
                                         Open application
                                     </a>
                                 </article>
                             @empty
-                                <div class="rounded-[24px] border border-dashed border-rose-200 bg-white px-5 py-8 text-center">
+                                <div class="cf-dashboard-side-panel__empty">
                                     <p class="font-display text-3xl font-semibold text-[var(--cf-ink)]">No overdue reminders</p>
                                     <p class="cf-help mt-3">You're caught up on your follow-ups right now.</p>
                                 </div>
@@ -141,41 +141,41 @@
                         </div>
                     </aside>
 
-                    <aside class="cf-panel-soft motion-reveal border-sky-200 bg-sky-50/90 p-6" data-motion-delay="190">
+                    <aside class="cf-dashboard-side-panel cf-dashboard-side-panel--info motion-reveal p-6" data-motion-delay="190">
                         <div class="flex items-center justify-between gap-4">
                             <div>
-                                <p class="cf-kicker text-sky-700">Coming up</p>
+                                <p class="cf-kicker cf-dashboard-side-panel__kicker">Coming up</p>
                                 <h3 class="cf-heading mt-2 text-2xl">Upcoming interviews</h3>
                             </div>
 
-                            <span class="rounded-full bg-white px-3 py-1 text-sm font-semibold text-sky-700">
+                            <span class="cf-dashboard-side-panel__count">
                                 {{ $upcomingInterviews->count() }}
                             </span>
                         </div>
 
                         <div class="mt-6 space-y-4">
                             @forelse ($upcomingInterviews as $interview)
-                                <article class="motion-reveal rounded-[24px] border border-sky-200 bg-white p-4 shadow-sm" data-motion-delay="{{ $loop->index * 70 }}">
+                                <article class="cf-dashboard-side-panel__item motion-reveal" data-motion-delay="{{ $loop->index * 70 }}">
                                     <p class="text-sm font-semibold text-[var(--cf-ink)]">{{ $interview->stage_name }}</p>
                                     <p class="cf-help mt-1">
                                         {{ $interview->application->company->name }} | {{ $interview->application->job_title }}
                                     </p>
-                                    <p class="mt-3 text-sm font-medium text-sky-800">
+                                    <p class="mt-3 text-sm font-medium text-[var(--cf-ink)]">
                                         {{ $interview->interview_date->format('d M Y, h:i A') }}
                                     </p>
-                                    <p class="mt-1 text-xs font-semibold uppercase tracking-[0.2em] text-sky-700">
+                                    <p class="cf-dashboard-side-panel__meta mt-1">
                                         {{ $interview->interview_date->diffForHumans() }}
                                     </p>
 
                                     <a
                                         href="{{ route('applications.show', $interview->application) }}"
-                                        class="mt-4 inline-flex items-center text-sm font-semibold text-sky-700 hover:text-sky-800"
+                                        class="cf-dashboard-side-panel__link mt-4 inline-flex items-center text-sm font-semibold"
                                     >
                                         Open application
                                     </a>
                                 </article>
                             @empty
-                                <div class="rounded-[24px] border border-dashed border-sky-200 bg-white px-5 py-8 text-center">
+                                <div class="cf-dashboard-side-panel__empty">
                                     <p class="font-display text-3xl font-semibold text-[var(--cf-ink)]">No upcoming interviews</p>
                                     <p class="cf-help mt-3">Add an interview date to see it appear here.</p>
                                 </div>

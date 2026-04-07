@@ -34,9 +34,9 @@
                 <form method="GET" action="{{ route('applications.index') }}" class="grid gap-4 md:grid-cols-[2fr_1fr_auto] md:items-end">
                     <div>
                         <x-input-label for="search" value="Search applications" />
-                        <div class="cf-input-wrap mt-2">
-                            <span class="cf-input-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <div class="relative mt-2">
+                            <span class="pointer-events-none absolute inset-y-0 left-0 z-10 inline-flex w-12 items-center justify-center text-[var(--cf-muted)]" aria-hidden="true">
+                                <svg class="h-[0.95rem] w-[0.95rem] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                     <circle cx="11" cy="11" r="6.5" />
                                     <path d="M16 16l4.5 4.5" />
                                 </svg>
@@ -45,7 +45,7 @@
                                 id="search"
                                 name="search"
                                 type="text"
-                                class="cf-input--with-icon block w-full"
+                                class="block w-full pl-12"
                                 placeholder="Search company or job title"
                                 :value="$filters['search'] ?? ''"
                             />

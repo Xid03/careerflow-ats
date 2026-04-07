@@ -19,6 +19,17 @@
             </div>
 
             <div class="hidden items-center gap-3 sm:flex sm:ms-6">
+                <button type="button" data-theme-toggle class="cf-theme-toggle" aria-label="Toggle dark mode">
+                    <svg class="cf-theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4.25" />
+                        <path d="M12 2.75v2.5M12 18.75v2.5M21.25 12h-2.5M5.25 12h-2.5M18.54 5.46l-1.77 1.77M7.23 16.77l-1.77 1.77M18.54 18.54l-1.77-1.77M7.23 7.23L5.46 5.46" />
+                    </svg>
+                    <svg class="cf-theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                        <path d="M20.2 14.45A8.5 8.5 0 1 1 9.55 3.8a7.1 7.1 0 0 0 10.65 10.65Z" />
+                    </svg>
+                    <span class="cf-theme-toggle__label">Dark mode</span>
+                </button>
+
                 <a
                     href="{{ route('applications.create') }}"
                     class="cf-button-primary"
@@ -28,7 +39,7 @@
 
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="inline-flex items-center gap-3 rounded-[18px] border border-[var(--cf-border)] bg-white px-3.5 py-2.5 text-sm font-medium text-[var(--cf-ink)] shadow-sm hover:border-[var(--cf-border-strong)] focus:outline-none">
+                        <button class="cf-toolbar-button inline-flex items-center gap-3 rounded-[18px] px-3.5 py-2.5 text-sm font-medium text-[var(--cf-ink)] focus:outline-none">
                             <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-[var(--cf-bg-soft)] text-xs font-semibold uppercase tracking-[0.12em] text-[var(--cf-ink)]">
                                 {{ \Illuminate\Support\Str::of(Auth::user()->name)->explode(' ')->take(2)->map(fn ($part) => \Illuminate\Support\Str::substr($part, 0, 1))->implode('') }}
                             </div>
@@ -65,7 +76,17 @@
             </div>
 
             <div class="-me-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center rounded-2xl border border-[var(--cf-border)] bg-white p-3 text-[var(--cf-ink)] shadow-sm focus:outline-none">
+                <button type="button" data-theme-toggle class="cf-theme-toggle me-2" aria-label="Toggle dark mode">
+                    <svg class="cf-theme-toggle__sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4.25" />
+                        <path d="M12 2.75v2.5M12 18.75v2.5M21.25 12h-2.5M5.25 12h-2.5M18.54 5.46l-1.77 1.77M7.23 16.77l-1.77 1.77M18.54 18.54l-1.77-1.77M7.23 7.23L5.46 5.46" />
+                    </svg>
+                    <svg class="cf-theme-toggle__moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                        <path d="M20.2 14.45A8.5 8.5 0 1 1 9.55 3.8a7.1 7.1 0 0 0 10.65 10.65Z" />
+                    </svg>
+                </button>
+
+                <button @click="open = ! open" class="cf-toolbar-button inline-flex items-center justify-center rounded-2xl p-3 text-[var(--cf-ink)] focus:outline-none">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -99,7 +120,7 @@
                 </x-responsive-nav-link>
             </div>
 
-            <div class="mt-4 rounded-[24px] border border-[var(--cf-border)] bg-white/70 px-4 py-4">
+            <div class="cf-user-card mt-4 rounded-[24px] px-4 py-4">
                 <div class="font-semibold text-[var(--cf-ink)]">{{ Auth::user()->name }}</div>
                 <div class="text-sm text-[var(--cf-muted)]">{{ Auth::user()->email }}</div>
             </div>

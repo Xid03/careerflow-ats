@@ -7,7 +7,9 @@ window.Alpine = Alpine;
 Alpine.start();
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const themeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 const root = document.documentElement;
+const themeStorageKey = 'cf-theme';
 
 const hideLoadingScreen = () => {
     root.classList.remove('cf-loading');
@@ -15,6 +17,35 @@ const hideLoadingScreen = () => {
 
 const showLoadingScreen = () => {
     root.classList.add('cf-loading');
+};
+
+const syncThemeToggles = (isDark) => {
+    document.querySelectorAll('[data-theme-toggle]').forEach((toggle) => {
+        if (!(toggle instanceof HTMLButtonElement)) {
+            return;
+        }
+
+        toggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+        toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+
+        const label = toggle.querySelector('.cf-theme-toggle__label');
+
+        if (label) {
+            label.textContent = isDark ? 'Light mode' : 'Dark mode';
+        }
+    });
+};
+
+const applyTheme = (theme, { persist = true } = {}) => {
+    const isDark = theme === 'dark';
+
+    root.classList.toggle('cf-theme-dark', isDark);
+
+    if (persist) {
+        window.localStorage.setItem(themeStorageKey, theme);
+    }
+
+    syncThemeToggles(isDark);
 };
 
 const makeVisible = (element) => {
@@ -31,6 +62,7 @@ const applyMotionDelay = (element) => {
 
 window.addEventListener('DOMContentLoaded', () => {
     const revealElements = document.querySelectorAll('.motion-reveal');
+    syncThemeToggles(root.classList.contains('cf-theme-dark'));
 
     revealElements.forEach((element) => applyMotionDelay(element));
 
@@ -86,6 +118,15 @@ window.addEventListener('DOMContentLoaded', () => {
     }, true);
 
     document.addEventListener('click', (event) => {
+        const themeToggle = event.target.closest('[data-theme-toggle]');
+
+        if (themeToggle instanceof HTMLButtonElement) {
+            const nextTheme = root.classList.contains('cf-theme-dark') ? 'light' : 'dark';
+
+            applyTheme(nextTheme);
+            return;
+        }
+
         const link = event.target.closest('a[href]');
 
         if (!link || event.defaultPrevented) {
@@ -123,3 +164,12 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('pageshow', hideLoadingScreen);
+
+themeMediaQuery.addEventListener('change', (event) => {
+    if (window.localStorage.getItem(themeStorageKey)) {
+        return;
+    }
+
+    root.classList.toggle('cf-theme-dark', event.matches);
+    syncThemeToggles(event.matches);
+});

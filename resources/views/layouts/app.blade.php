@@ -8,7 +8,16 @@
         <title>{{ config('app.name', 'CareerFlow ATS') }}</title>
         <link rel="icon" type="image/png" href="{{ asset('images/logoicon.png') }}">
         <link rel="apple-touch-icon" href="{{ asset('images/logoicon.png') }}">
-        <script>document.documentElement.classList.add('cf-loading');</script>
+        <script>
+            document.documentElement.classList.add('cf-loading');
+            (() => {
+                const storedTheme = localStorage.getItem('cf-theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const useDark = storedTheme ? storedTheme === 'dark' : prefersDark;
+
+                document.documentElement.classList.toggle('cf-theme-dark', useDark);
+            })();
+        </script>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

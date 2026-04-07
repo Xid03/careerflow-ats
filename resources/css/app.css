@@ -18,6 +18,22 @@
         --cf-shadow: 0 20px 48px rgba(15, 23, 42, 0.08);
     }
 
+    html.cf-theme-dark {
+        color-scheme: dark;
+        --cf-bg: #08131a;
+        --cf-bg-soft: #0f1d26;
+        --cf-surface: rgba(11, 21, 29, 0.92);
+        --cf-surface-strong: #12212b;
+        --cf-border: rgba(148, 163, 184, 0.16);
+        --cf-border-strong: rgba(148, 163, 184, 0.28);
+        --cf-ink: #ebf4f7;
+        --cf-muted: #97a7b5;
+        --cf-accent: #29c7b0;
+        --cf-accent-deep: #8cf4e1;
+        --cf-emerald: #4ade80;
+        --cf-shadow: 0 28px 60px rgba(2, 8, 23, 0.42);
+    }
+
     html {
         scroll-behavior: smooth;
     }
@@ -30,6 +46,13 @@
             radial-gradient(circle at top left, rgba(15, 118, 110, 0.09), transparent 24%),
             radial-gradient(circle at top right, rgba(245, 158, 11, 0.08), transparent 20%),
             linear-gradient(180deg, #f8fbfd 0%, #f1f5f9 100%);
+    }
+
+    html.cf-theme-dark body {
+        background:
+            radial-gradient(circle at top left, rgba(41, 199, 176, 0.14), transparent 24%),
+            radial-gradient(circle at top right, rgba(245, 158, 11, 0.1), transparent 18%),
+            linear-gradient(180deg, #061018 0%, #0a141c 100%);
     }
 
     ::selection {
@@ -110,6 +133,28 @@
         box-shadow: 0 24px 60px rgba(15, 23, 42, 0.1);
     }
 
+    html.cf-theme-dark .cf-panel {
+        background: rgba(10, 19, 27, 0.88);
+        box-shadow: 0 30px 64px rgba(2, 8, 23, 0.44);
+    }
+
+    html.cf-theme-dark .cf-panel-soft {
+        background: rgba(14, 25, 34, 0.88);
+        box-shadow: 0 18px 40px rgba(2, 8, 23, 0.28);
+    }
+
+    html.cf-theme-dark .cf-page-header {
+        background:
+            radial-gradient(circle at top right, rgba(41, 199, 176, 0.14), transparent 24%),
+            linear-gradient(180deg, rgba(11, 21, 29, 0.96) 0%, rgba(9, 18, 25, 0.96) 100%);
+    }
+
+    html.cf-theme-dark .cf-panel:hover,
+    html.cf-theme-dark .cf-panel-soft:hover,
+    html.cf-theme-dark .cf-page-header:hover {
+        box-shadow: 0 32px 72px rgba(2, 8, 23, 0.5);
+    }
+
     .cf-kicker {
         color: var(--cf-accent);
         font-size: 0.73rem;
@@ -185,6 +230,17 @@
         transform: translateY(-1px);
     }
 
+    html.cf-theme-dark .cf-button-secondary {
+        background: rgba(18, 33, 43, 0.9);
+        border-color: var(--cf-border-strong);
+        color: var(--cf-ink);
+    }
+
+    html.cf-theme-dark .cf-button-secondary:hover {
+        background: rgba(21, 38, 49, 0.96);
+        border-color: rgba(140, 244, 225, 0.3);
+    }
+
     .cf-button-danger {
         align-items: center;
         background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
@@ -227,6 +283,16 @@
         border-color: rgba(15, 118, 110, 0.42);
         box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.11);
         outline: none;
+    }
+
+    html.cf-theme-dark .cf-input {
+        background: rgba(8, 16, 23, 0.96);
+        border-color: rgba(148, 163, 184, 0.22);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    }
+
+    html.cf-theme-dark .cf-input::placeholder {
+        color: rgba(151, 167, 181, 0.9);
     }
 
     .cf-password-wrap {
@@ -284,6 +350,10 @@
         color: var(--cf-accent-deep);
     }
 
+    html.cf-theme-dark .cf-password-toggle:hover {
+        background: rgba(41, 199, 176, 0.12);
+    }
+
     .cf-password-toggle:focus-visible {
         outline: none;
         box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.12);
@@ -310,6 +380,226 @@
         color: var(--cf-muted);
         font-size: 0.92rem;
         line-height: 1.55rem;
+    }
+
+    .cf-theme-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        min-height: 3rem;
+        padding: 0.72rem 0.95rem;
+        border-radius: 9999px;
+        border: 1px solid var(--cf-border);
+        background: rgba(255, 255, 255, 0.88);
+        color: var(--cf-ink);
+        box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+        font-size: 0.88rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+    }
+
+    .cf-theme-toggle:hover {
+        transform: translateY(-1px);
+        border-color: var(--cf-border-strong);
+        box-shadow: 0 16px 34px rgba(15, 23, 42, 0.12);
+    }
+
+    .cf-theme-toggle:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.14);
+    }
+
+    .cf-theme-toggle svg {
+        width: 1rem;
+        height: 1rem;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        flex-shrink: 0;
+    }
+
+    .cf-theme-toggle__sun {
+        display: none;
+    }
+
+    .cf-theme-toggle__label {
+        line-height: 1;
+        white-space: nowrap;
+    }
+
+    .cf-theme-toggle--floating {
+        margin-left: auto;
+        margin-bottom: 1.25rem;
+    }
+
+    .cf-dashboard-side-panel {
+        border: 1px solid var(--cf-border);
+        border-radius: 28px;
+        box-shadow: var(--cf-shadow);
+    }
+
+    .cf-dashboard-side-panel--alert {
+        background:
+            radial-gradient(circle at top right, rgba(244, 63, 94, 0.12), transparent 28%),
+            linear-gradient(180deg, rgba(255, 246, 248, 0.96) 0%, rgba(255, 240, 243, 0.96) 100%);
+        border-color: rgba(244, 63, 94, 0.16);
+        box-shadow:
+            inset 0 0 0 1px rgba(251, 113, 133, 0.16),
+            var(--cf-shadow);
+    }
+
+    .cf-dashboard-side-panel--info {
+        background:
+            radial-gradient(circle at top right, rgba(14, 165, 233, 0.12), transparent 28%),
+            linear-gradient(180deg, rgba(246, 251, 255, 0.96) 0%, rgba(238, 247, 255, 0.96) 100%);
+        border-color: rgba(14, 165, 233, 0.16);
+        box-shadow:
+            inset 0 0 0 1px rgba(56, 189, 248, 0.16),
+            var(--cf-shadow);
+    }
+
+    .cf-dashboard-side-panel__kicker {
+        color: inherit;
+    }
+
+    .cf-dashboard-side-panel--alert .cf-dashboard-side-panel__kicker,
+    .cf-dashboard-side-panel--alert .cf-dashboard-side-panel__meta,
+    .cf-dashboard-side-panel--alert .cf-dashboard-side-panel__link,
+    .cf-dashboard-side-panel--alert .cf-dashboard-side-panel__count {
+        color: #e11d48;
+    }
+
+    .cf-dashboard-side-panel--info .cf-dashboard-side-panel__kicker,
+    .cf-dashboard-side-panel--info .cf-dashboard-side-panel__meta,
+    .cf-dashboard-side-panel--info .cf-dashboard-side-panel__link,
+    .cf-dashboard-side-panel--info .cf-dashboard-side-panel__count {
+        color: #0369a1;
+    }
+
+    .cf-dashboard-side-panel__count {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 2.8rem;
+        height: 2.8rem;
+        padding: 0 0.95rem;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(255, 255, 255, 0.78);
+        font-size: 0.95rem;
+        font-weight: 800;
+        box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+    }
+
+    .cf-dashboard-side-panel__item,
+    .cf-dashboard-side-panel__empty {
+        border-radius: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.82);
+        background: rgba(255, 255, 255, 0.72);
+        padding: 1.15rem 1.2rem;
+        box-shadow: 0 12px 26px rgba(15, 23, 42, 0.05);
+        backdrop-filter: blur(10px);
+    }
+
+    .cf-dashboard-side-panel__empty {
+        border-style: dashed;
+        padding: 2rem 1.4rem;
+        text-align: center;
+    }
+
+    .cf-dashboard-side-panel__meta {
+        font-size: 0.72rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        text-align: right;
+    }
+
+    .cf-dashboard-side-panel__link:hover {
+        opacity: 0.82;
+    }
+
+    .cf-toolbar-button {
+        border: 1px solid var(--cf-border);
+        background: rgba(255, 255, 255, 0.88);
+        box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06);
+    }
+
+    .cf-toolbar-button:hover {
+        border-color: var(--cf-border-strong);
+        box-shadow: 0 14px 30px rgba(15, 23, 42, 0.1);
+    }
+
+    .cf-user-card,
+    .cf-dropdown-menu {
+        border: 1px solid var(--cf-border);
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 18px 38px rgba(15, 23, 42, 0.08);
+    }
+
+    .cf-dropdown-menu {
+        border-radius: 16px;
+        backdrop-filter: blur(12px);
+    }
+
+    html.cf-theme-dark .cf-theme-toggle,
+    html.cf-theme-dark .cf-toolbar-button,
+    html.cf-theme-dark .cf-user-card,
+    html.cf-theme-dark .cf-dropdown-menu {
+        background: rgba(15, 28, 37, 0.92);
+        border-color: var(--cf-border);
+        box-shadow: 0 22px 44px rgba(2, 8, 23, 0.32);
+    }
+
+    html.cf-theme-dark .cf-theme-toggle:hover,
+    html.cf-theme-dark .cf-toolbar-button:hover {
+        border-color: rgba(140, 244, 225, 0.24);
+        box-shadow: 0 26px 48px rgba(2, 8, 23, 0.38);
+    }
+
+    html.cf-theme-dark .cf-theme-toggle__moon {
+        display: none;
+    }
+
+    html.cf-theme-dark .cf-theme-toggle__sun {
+        display: inline-flex;
+    }
+
+    html.cf-theme-dark .cf-dashboard-side-panel {
+        box-shadow: 0 30px 64px rgba(2, 8, 23, 0.34);
+    }
+
+    html.cf-theme-dark .cf-dashboard-side-panel--alert {
+        background:
+            radial-gradient(circle at top right, rgba(244, 63, 94, 0.14), transparent 30%),
+            linear-gradient(180deg, rgba(31, 14, 21, 0.96) 0%, rgba(24, 12, 18, 0.96) 100%);
+        border-color: rgba(251, 113, 133, 0.34);
+        box-shadow:
+            inset 0 0 0 1px rgba(251, 113, 133, 0.18),
+            0 30px 64px rgba(2, 8, 23, 0.34);
+    }
+
+    html.cf-theme-dark .cf-dashboard-side-panel--info {
+        background:
+            radial-gradient(circle at top right, rgba(14, 165, 233, 0.16), transparent 30%),
+            linear-gradient(180deg, rgba(10, 24, 34, 0.96) 0%, rgba(9, 20, 29, 0.96) 100%);
+        border-color: rgba(56, 189, 248, 0.34);
+        box-shadow:
+            inset 0 0 0 1px rgba(56, 189, 248, 0.18),
+            0 30px 64px rgba(2, 8, 23, 0.34);
+    }
+
+    html.cf-theme-dark .cf-dashboard-side-panel__count {
+        background: rgba(255, 255, 255, 0.06);
+        border-color: rgba(255, 255, 255, 0.08);
+        box-shadow: none;
+    }
+
+    html.cf-theme-dark .cf-dashboard-side-panel__item,
+    html.cf-theme-dark .cf-dashboard-side-panel__empty {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(255, 255, 255, 0.12);
+        box-shadow: 0 18px 34px rgba(2, 8, 23, 0.2);
     }
 
     .cf-mesh {
@@ -420,6 +710,11 @@
         stroke-width: 2.2;
         stroke-linecap: round;
         stroke-linejoin: round;
+    }
+
+    html.cf-theme-dark .cf-modal-close {
+        background: rgba(15, 28, 37, 0.92);
+        box-shadow: 0 12px 26px rgba(2, 8, 23, 0.28);
     }
 
     .cf-success-card::before {
@@ -632,6 +927,17 @@
         background: #fff;
         box-shadow: 0 22px 46px rgba(30, 52, 66, 0.18);
         animation: cfLoaderPulse 1.9s ease-in-out infinite;
+    }
+
+    html.cf-theme-dark .cf-loading-screen {
+        background:
+            radial-gradient(circle at top, rgba(41, 199, 176, 0.16), transparent 42%),
+            linear-gradient(180deg, rgba(8, 16, 23, 0.98) 0%, rgba(9, 18, 25, 0.98) 100%);
+    }
+
+    html.cf-theme-dark .cf-loader-logo {
+        background: #0d1921;
+        box-shadow: 0 22px 46px rgba(2, 8, 23, 0.32);
     }
 
     .cf-loader-logo img {
