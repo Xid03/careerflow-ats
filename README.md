@@ -41,114 +41,37 @@ This keeps the project readable, scalable for an MVP, and easy to extend with ad
 
 ## Project Preview
 
-Add screenshots here later to make the repository more attractive for recruiters and hiring managers.
-
-Suggested preview slots:
-
-- Login page
-- Dashboard overview
-- Applications list with filters
-- Create application form
-- Application detail page
-- Reminder and interview sections
-- Status history timeline
-- Dark mode view
-
 ### Login Page
-
-The login experience is designed to feel calm, modern, and product-focused rather than default framework scaffolding.
 
 ![Login page](docs/screenshots/login-page.png)
 
-Image path: `docs/screenshots/login-page.png`
-
 ### Dashboard Overview
-
-Use this section to show the main workspace, KPI cards, reminders, interviews, and analytics at a glance.
 
 ![Dashboard overview](docs/screenshots/dashboard-overview.png)
 
-Image path: `docs/screenshots/dashboard-overview.png`
-
 ### Applications List
-
-Use this section to highlight filtering, search, status visibility, salary columns, and action controls.
 
 ![Applications list](docs/screenshots/applications-list.png)
 
-Image path: `docs/screenshots/applications-list.png`
-
 ### Create Application Form
-
-Use this section to show the form design, field structure, and overall data-entry experience.
 
 ![Create application form](docs/screenshots/create-application-form.png)
 
-Image path: `docs/screenshots/create-application-form.png`
-
 ### Application Detail
-
-Use this section to show the deeper workflow view, including interviews, reminders, and status history.
 
 ![Application detail](docs/screenshots/application-detail.png)
 
-Image path: `docs/screenshots/application-detail.png`
-
 ### Reminder and Interview Sections
-
-Use this section to highlight the workflow support features inside the application detail page.
 
 ![Reminder and interview sections](docs/screenshots/reminder-interview-sections.png)
 
-Image path: `docs/screenshots/reminder-interview-sections.png`
-
 ### Status History Timeline
-
-Use this section to show how application progress and updates are tracked over time.
 
 ![Status history timeline](docs/screenshots/status-history-timeline.png)
 
-Image path: `docs/screenshots/status-history-timeline.png`
-
 ### Dark Mode
 
-Use this section to show the visual polish and theming support of the interface.
-
 ![Dark mode view](docs/screenshots/dark-mode.png)
-
-Image path: `docs/screenshots/dark-mode.png`
-
-Markdown base you can reuse:
-
-```md
-### Login Page
-![Login page](docs/screenshots/login-page.png)
-
-### Dashboard Overview
-![Dashboard overview](docs/screenshots/dashboard-overview.png)
-
-### Applications List
-![Applications list](docs/screenshots/applications-list.png)
-
-### Create Application Form
-![Create application form](docs/screenshots/create-application-form.png)
-
-### Application Detail
-![Application detail](docs/screenshots/application-detail.png)
-
-### Reminder and Interview Sections
-![Reminder and interview sections](docs/screenshots/reminder-interview-sections.png)
-
-### Status History Timeline
-![Status history timeline](docs/screenshots/status-history-timeline.png)
-
-### Dark Mode
-![Dark mode view](docs/screenshots/dark-mode.png)
-```
-
-Recommended folder:
-
-- `docs/screenshots/`
 
 ## Why This Project Stands Out
 
@@ -367,19 +290,6 @@ For a portfolio deployment, use:
 - a hosted PostgreSQL database
 - proper production environment variables
 - HTTPS-enabled hosting
-
-## Suggested Portfolio Screenshots
-
-If you want to present this project to recruiters or hiring managers, the most valuable screenshots are:
-
-- login page
-- dashboard overview
-- applications list with filters
-- create application form
-- application detail page
-- reminder and interview sections
-- status history timeline
-- dark mode view
 
 ## Future Improvements
 
